@@ -1,3 +1,4 @@
+/*
 package com.girlsfun.dogParkTracker;
 
 import com.zaxxer.hikari.HikariConfig;
@@ -21,3 +22,4 @@ public class DatabaseConfig {
         return new HikariDataSource(config);
     }
 }
+*/

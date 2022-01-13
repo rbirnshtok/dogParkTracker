@@ -15,7 +15,8 @@ import javax.persistence.Id;
 @JsonIgnoreProperties({"hibernateInitializer","handler"})
 public class Dog {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY )
     private int id;
     private String dogName;
     private String breed;

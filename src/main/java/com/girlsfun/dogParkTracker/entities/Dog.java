@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -15,16 +12,25 @@ import javax.persistence.Id;
 @JsonIgnoreProperties({"hibernateInitializer","handler"})
 public class Dog {
     @Id
+    @Column(name = "id", unique = true, nullable = false)
     //@GeneratedValue(strategy = GenerationType.AUTO)
     @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY )
     private int id;
+    @Column
     private String dogName;
+    @Column
     private String breed;
+    @Column
     private String age;
+    @Column
     private String sex;
+    @Column
     private String color;
+    @Column
     private String aboutMyDog;
+    @Column
     private int ownerId;
+    @Column
     private boolean active = true;
 
     public Dog(String dogName, String breed, String age, String sex, String color, String aboutMyDog, int ownerId, boolean active) {

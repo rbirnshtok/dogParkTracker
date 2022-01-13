@@ -3,20 +3,24 @@ package com.girlsfun.dogParkTracker.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
 @AllArgsConstructor
 public class DogPark {
-    private int parkId;
+    @Column(name = "id", unique = true, nullable = false)
+    @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY )
+    private int id;
+    @Column
     private String parkName;
+    @Column
     private String address;
+    @Column
     private Double latitude;
+    @Column
     private Double longitude;
+    @Column
     private boolean active = true;
 
     public DogPark(){
@@ -25,7 +29,7 @@ public class DogPark {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getParkId() {
-        return parkId;
+    public int getId() {
+        return id;
     }
 }

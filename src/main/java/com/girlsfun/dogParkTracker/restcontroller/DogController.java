@@ -56,8 +56,8 @@ public class DogController {
         return dog;
     }
 
-/*@PutMapping("/{dogId}")
-    public Dog update(@RequestBody Dog dog, @PathVariable Integer dogId) {
+    @PutMapping("/dogs/{dogId}")
+        public Dog update(@RequestBody Dog dog, @PathVariable Integer dogId) {
         try {
             dogService.saveDog(dog);
             return dog;
@@ -66,13 +66,13 @@ public class DogController {
             //return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             return null;
         }
-
-        @DeleteMapping("/{dogId}")
-    public void delete(@PathVariable Integer dogId) {
-        dogService.deleteDog(dogId);
     }
-    }*/
+        @DeleteMapping("/dogs/{dogId}")
+        public void delete(@PathVariable Integer dogId) {
+            dogService.deleteDog(dogId);
+        }
+    }
 
 
 
-}
+

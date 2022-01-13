@@ -39,7 +39,7 @@ public class DogParkController {
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@RequestBody DogPark dogPark, @PathVariable Integer id) {
         try {
-            dogPark.setParkId(id);
+            dogPark.setId(id);
             dogParkService.saveDogPark(dogPark);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (NoSuchElementException e) {

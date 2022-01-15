@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.InputStream;
+import java.sql.Blob;
 
 @Entity
 @Data
@@ -32,8 +34,12 @@ public class Dog {
     private int ownerId;
     @Column
     private boolean active = true;
+    @Lob
+    @Column(length=100000)
+    private byte[] image;
+    //private String image;
 
-    public Dog(String dogName, String breed, String age, String sex, String color, String aboutMyDog, int ownerId, boolean active) {
+    public Dog(String dogName, String breed, String age, String sex, String color, String aboutMyDog, int ownerId, boolean active, byte[] image) {
         this.dogName = dogName;
         this.breed = breed;
         this.age = age;
@@ -42,6 +48,7 @@ public class Dog {
         this.aboutMyDog = aboutMyDog;
         this.ownerId = ownerId;
         this.active = active;
+        this.image = image;
     }
 
     /*@JsonFormat(shape= JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
@@ -54,6 +61,7 @@ public class Dog {
         sex = "female";
         color = "fawn";
         aboutMyDog = "Energetic,loves to wrestle play";
+        image = null;
     }
 
 }
